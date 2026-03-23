@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRESWEAR | Definitive Streetwear</title>
+    <title>CRESWEAR | High-End Streetwear</title>
     <style>
         :root {
             --primary: #FFD700; /* Altın Sarısı */
@@ -18,151 +18,113 @@
             font-family: 'Arial Black', Gadget, sans-serif;
             margin: 0;
             overflow-x: hidden;
+            scroll-behavior: smooth; /* Sayfada akıcı kayma sağlar */
         }
 
         /* Navigasyon */
         nav {
             display: flex;
             justify-content: space-between;
-            padding: 30px 5%;
-            background: rgba(0,0,0,0.9);
+            padding: 20px 5%;
+            background: rgba(0,0,0,0.95);
             position: fixed;
-            width: 90%;
+            top: 0; width: 90%;
             z-index: 1000;
             border-bottom: 2px solid var(--primary);
         }
 
-        .logo { font-size: 2rem; color: var(--primary); letter-spacing: 8px; }
+        .logo { font-size: 1.8rem; color: var(--primary); letter-spacing: 5px; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.8rem; letter-spacing: 2px; }
 
-        /* Ana Giriş (Hero) */
+        /* Hero Section */
         .hero {
             height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.7), var(--dark)),
-                        url('https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=2070&auto=format&fit=crop'); 
-            background-size: cover;
-            background-position: center;
-            border-bottom: 5px solid var(--primary);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.7), var(--dark)), url('https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=2070&auto=format&fit=crop'); 
+            background-size: cover; background-position: center;
         }
+        .hero h1 { font-size: 7vw; margin: 0; text-transform: uppercase; animation: fadeUp 1.5s ease; }
+        .hero h1 span { color: var(--primary); }
 
-        .hero h1 {
-            font-size: 8vw;
-            margin: 0;
-            color: var(--light);
-            -webkit-text-stroke: 1px var(--primary);
-            text-transform: uppercase;
+        /* S.S.S. (FAQ) Section */
+        .faq-section { padding: 100px 10%; background: var(--dark); }
+        .faq-title { font-size: 2.5rem; color: var(--primary); margin-bottom: 30px; border-left: 8px solid var(--primary); padding-left: 15px; }
+        
+        .faq-item { margin-bottom: 10px; border: 1px solid #333; }
+        .faq-question {
+            width: 100%; padding: 20px; background: #111; color: white; border: none; 
+            text-align: left; cursor: pointer; font-weight: bold; display: flex; justify-content: space-between;
+            transition: 0.3s;
         }
+        .faq-question:hover { background: #222; color: var(--primary); }
+        .faq-answer { display: none; padding: 20px; background: #000; color: #aaa; border-top: 1px solid #222; line-height: 1.6; }
 
-        .hero span { color: var(--primary); }
+        footer { padding: 40px; text-align: center; border-top: 1px solid var(--primary); color: #555; font-size: 0.7rem; letter-spacing: 3px; }
 
-        /* Koleksiyon Bölümü */
-        .collection {
-            padding: 100px 5%;
-            background-color: var(--dark);
-        }
-
-        .section-title {
-            font-size: 3rem;
-            color: var(--primary);
-            border-left: 10px solid var(--primary);
-            padding-left: 20px;
-            margin-bottom: 50px;
-        }
-
-        .item-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .item-card {
-            background: var(--gray);
-            height: 500px;
-            border: 2px solid var(--gray);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 30px;
-            transition: 0.5s;
-            position: relative;
-        }
-
-        .item-card:hover {
-            border-color: var(--primary);
-            transform: scale(1.02);
-        }
-
-        .item-card h2 { font-size: 2rem; margin: 0; text-transform: uppercase; }
-        .item-card p { color: var(--primary); font-size: 1.1rem; letter-spacing: 2px; }
-
-        /* Marka Manifestosu */
-        .manifesto {
-            padding: 100px 10%;
-            background-color: var(--primary);
-            color: var(--dark);
-            text-align: center;
-        }
-
-        .manifesto h2 { font-size: 4rem; margin-bottom: 20px; }
-        .manifesto p { font-size: 1.5rem; font-weight: bold; }
-
-        footer {
-            padding: 50px;
-            text-align: center;
-            border-top: 1px solid var(--primary);
-            color: var(--primary);
-            letter-spacing: 5px;
-        }
-
-        /* Animasyonlar */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .hero h1 { animation: fadeUp 1.5s ease; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
 <nav>
     <div class="logo">CRES</div>
-    <div style="color:white; font-size: 0.8rem; letter-spacing: 3px;">EST. 2026</div>
+    <div class="nav-links">
+        <a href="#collection">SHOP</a>
+        <a href="#faq">FAQ</a>
+    </div>
 </nav>
 
 <section class="hero">
     <h1>CRES<span>WEAR</span></h1>
-    <p>THE NEW ERA OF STREETWEAR</p>
+    <p style="letter-spacing: 5px;">EST. 2026 // PREMIUM QUALITY</p>
 </section>
 
-<section class="collection">
-    <div class="section-title">NEW DROP</div>
-    <div class="item-grid">
-        <div class="item-card">
-            <h2>OBSIDIAN HOODIE</h2>
-            <p>LIMITED EDITION</p>
+<section id="faq" class="faq-section">
+    <div class="faq-title">SIKÇA SORULAN SORULAR</div>
+    
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">ÖDEME YÖNTEMLERİ NELERDİR? <span>+</span></button>
+        <div class="faq-answer">
+            Şu an için sadece Havale/EFT ve Shopier üzerinden kredi kartı ile ödeme kabul etmekteyiz. Yakında kripto ödeme seçenekleri (BTC/ETH) eklenecektir.
         </div>
-        <div class="item-card" style="background: var(--primary); color: var(--dark);">
-            <h2 style="color: var(--dark);">AMBER OVERSIZE</h2>
-            <p style="color: var(--dark);">PREMIUM COTTON</p>
-        </div>
-        <div class="item-card">
-            <h2>NOIR CARGO</h2>
-            <p>TACTICAL SERIES</p>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">İADE VE DEĞİŞİM VAR MI? <span>+</span></button>
+        <div class="faq-answer">
+            Kişiselleştirilmiş ürünler hariç, 14 gün içerisinde değişim garantisi veriyoruz. Hijyen kuralları gereği bazı ürünlerde iade kabul edilmemektedir.
         </div>
     </div>
 </section>
 
-<section class="manifesto">
-    <h2>DURMA.</h2>
-    <p>CRES sadece bir marka değil, bir duruştur. <br> Sokakların yeni kuralı, senin stilin.</p>
-</section>
-
 <footer>
-    CRESWEAR // BY NETIZEN
+    CRESWEAR BY NETIZEN // SİBER GÜVENLİK VE TASARIMIN BULUŞMA NOKTASI.
 </footer>
+
+<script>
+    function toggleFaq(btn) {
+        const answer = btn.nextElementSibling;
+        const allAnswers = document.querySelectorAll('.faq-answer');
+        const allIcons = document.querySelectorAll('.faq-question span');
+
+        // Diğer açık olanları kapat (Opsiyonel - Profesyonel görünüm sağlar)
+        allAnswers.forEach((ans, i) => {
+            if (ans !== answer) {
+                ans.style.display = "none";
+                allIcons[i].innerText = "+";
+            }
+        });
+
+        // Tıklananı aç/kapat
+        if (answer.style.display === "block") {
+            answer.style.display = "none";
+            btn.querySelector('span').innerText = "+";
+        } else {
+            answer.style.display = "block";
+            btn.querySelector('span').innerText = "-";
+        }
+    }
+</script>
 
 </body>
 </html>
