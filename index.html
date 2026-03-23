@@ -3,83 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRESWEAR | High-End Streetwear</title>
+    <title>CRESWEAR | Definitive Streetwear</title>
     <style>
-        :root { --bg: #000000; --text: #ffffff; --accent: #444444; }
-        body { background-color: var(--bg); color: var(--text); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-        
-        /* Navigation */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; border-bottom: 1px solid var(--accent); }
-        .logo { font-size: 1.8rem; font-weight: 900; letter-spacing: 5px; text-transform: uppercase; }
-        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* Hero Section */
-        .hero { height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center; }
-        .hero h1 { font-size: 4rem; margin: 0; letter-spacing: 10px; }
-        .hero p { font-size: 1.2rem; color: #ccc; margin-top: 10px; }
-
-        /* Product Grid */
-        .products { padding: 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .product-card { border: 1px solid #111; padding-bottom: 20px; transition: 0.3s; position: relative; overflow: hidden; }
-        .product-card:hover { border-color: var(--text); }
-        .product-image { width: 100%; height: 400px; background-color: #111; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #555; }
-        .product-info { padding: 20px; text-align: center; }
-        .product-name { font-weight: bold; text-transform: uppercase; margin-bottom: 10px; }
-        .product-price { color: #888; }
-
-        /* Footer */
-        footer { padding: 50px; border-top: 1px solid var(--accent); text-align: center; font-size: 0.8rem; letter-spacing: 2px; color: #555; }
-        
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            nav { padding: 20px; }
+        :root {
+            --primary: #FFD700; /* Altın Sarısı */
+            --dark: #000000;
+            --light: #FFFFFF;
+            --gray: #1a1a1a;
         }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            font-family: 'Arial Black', Gadget, sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Navigasyon */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 30px 5%;
+            background: rgba(0,0,0,0.9);
+            position: fixed;
+            width: 90%;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .logo { font-size: 2rem; color: var(--primary); letter-spacing: 8px; }
+
+        /* Ana Giriş (Hero) */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7), var(--dark)),
+                        url('https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=2070&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+            border-bottom: 5px solid var(--primary);
+        }
+
+        .hero h1 {
+            font-size: 8vw;
+            margin: 0;
+            color: var(--light);
+            -webkit-text-stroke: 1px var(--primary);
+            text-transform: uppercase;
+        }
+
+        .hero span { color: var(--primary); }
+
+        /* Koleksiyon Bölümü */
+        .collection {
+            padding: 100px 5%;
+            background-color: var(--dark);
+        }
+
+        .section-title {
+            font-size: 3rem;
+            color: var(--primary);
+            border-left: 10px solid var(--primary);
+            padding-left: 20px;
+            margin-bottom: 50px;
+        }
+
+        .item-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .item-card {
+            background: var(--gray);
+            height: 500px;
+            border: 2px solid var(--gray);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            transition: 0.5s;
+            position: relative;
+        }
+
+        .item-card:hover {
+            border-color: var(--primary);
+            transform: scale(1.02);
+        }
+
+        .item-card h2 { font-size: 2rem; margin: 0; text-transform: uppercase; }
+        .item-card p { color: var(--primary); font-size: 1.1rem; letter-spacing: 2px; }
+
+        /* Marka Manifestosu */
+        .manifesto {
+            padding: 100px 10%;
+            background-color: var(--primary);
+            color: var(--dark);
+            text-align: center;
+        }
+
+        .manifesto h2 { font-size: 4rem; margin-bottom: 20px; }
+        .manifesto p { font-size: 1.5rem; font-weight: bold; }
+
+        footer {
+            padding: 50px;
+            text-align: center;
+            border-top: 1px solid var(--primary);
+            color: var(--primary);
+            letter-spacing: 5px;
+        }
+
+        /* Animasyonlar */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero h1 { animation: fadeUp 1.5s ease; }
     </style>
 </head>
 <body>
 
 <nav>
     <div class="logo">CRES</div>
-    <div class="nav-links">
-        <a href="#">Shop</a>
-        <a href="#">Lookbook</a>
-        <a href="#">Contact</a>
-    </div>
+    <div style="color:white; font-size: 0.8rem; letter-spacing: 3px;">EST. 2026</div>
 </nav>
 
 <section class="hero">
-    <h1>CRESWEAR</h1>
-    <p>DEFINING NEW STANDARDS</p>
+    <h1>CRES<span>WEAR</span></h1>
+    <p>THE NEW ERA OF STREETWEAR</p>
 </section>
 
-<div class="products">
-    <div class="product-card">
-        <div class="product-image">HOODIE IMAGE [SAMPLE]</div>
-        <div class="product-info">
-            <div class="product-name">CRES Oversized Hoodie v1</div>
-            <div class="product-price">1.200 TL</div>
+<section class="collection">
+    <div class="section-title">NEW DROP</div>
+    <div class="item-grid">
+        <div class="item-card">
+            <h2>OBSIDIAN HOODIE</h2>
+            <p>LIMITED EDITION</p>
+        </div>
+        <div class="item-card" style="background: var(--primary); color: var(--dark);">
+            <h2 style="color: var(--dark);">AMBER OVERSIZE</h2>
+            <p style="color: var(--dark);">PREMIUM COTTON</p>
+        </div>
+        <div class="item-card">
+            <h2>NOIR CARGO</h2>
+            <p>TACTICAL SERIES</p>
         </div>
     </div>
+</section>
 
-    <div class="product-card">
-        <div class="product-image">T-SHIRT IMAGE [SAMPLE]</div>
-        <div class="product-info">
-            <div class="product-name">CRES Signature Tee</div>
-            <div class="product-price">650 TL</div>
-        </div>
-    </div>
-
-    <div class="product-card">
-        <div class="product-image">PANTS IMAGE [SAMPLE]</div>
-        <div class="product-info">
-            <div class="product-name">Cargo Pants "Noir"</div>
-            <div class="product-price">1.500 TL</div>
-        </div>
-    </div>
-</div>
+<section class="manifesto">
+    <h2>DURMA.</h2>
+    <p>CRES sadece bir marka değil, bir duruştur. <br> Sokakların yeni kuralı, senin stilin.</p>
+</section>
 
 <footer>
-    &copy; 2026 CRESWEAR BY NETIZEN. ALL RIGHTS RESERVED.
+    CRESWEAR // BY NETIZEN
 </footer>
 
 </body>
